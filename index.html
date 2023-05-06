@@ -1,7 +1,69 @@
 <!DOCTYPE html>
 <html>
-<body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
-</body>
+  <head>
+    <title>My Website</title>
+    <style>
+      /* Define styles for the colored tabs */
+      .tab {
+        display: inline-block;
+        padding: 10px;
+        background-color: #ff9999; /* Red */
+        color: white;
+        border-radius: 5px 5px 0 0;
+        cursor: pointer;
+      }
+      
+      /* Define different background colors for each tab */
+      #tab1 {
+        background-color: #ff9999; /* Red */
+      }
+      
+      #tab2 {
+        background-color: #ffcc99; /* Orange */
+      }
+      
+      #tab3 {
+        background-color: #ffff99; /* Yellow */
+      }
+      
+      #tab4 {
+        background-color: #99ff99; /* Green */
+      }
+      
+      #tab5 {
+        background-color: #99ccff; /* Blue */
+      }
+      
+      #tab6 {
+        background-color: #cc99ff; /* Purple */
+      }
+      
+      /* Define styles for the active tab */
+      .active {
+        background-color: white;
+        color: black;
+      }
+      
+      /* Define styles for the welcome text */
+      #welcome {
+        margin-top: 20px;
+        font-size: 24px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>My Website</h1>
+    </header>
+    <div>
+      <div class="tab active" id="tab1">Tab 1</div>
+      <div class="tab" id="tab2">Tab 2</div>
+      <div class="tab" id="tab3">Tab 3</div>
+      <div class="tab" id="tab4">Tab 4</div>
+      <div class="tab" id="tab5">Tab 5</div>
+      <div class="tab" id="tab6">Tab 6</div>
+    </div>
+    <div id="welcome">Welcome to my website!</div>
+  </body>
 </html>
