@@ -1,69 +1,88 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>My Website</title>
+    <title>Mister Kitty's Website</title>
     <style>
-      /* Define styles for the colored tabs */
-      .tab {
-        display: inline-block;
-        padding: 10px;
+      /* Define styles for the header */
+      header {
         background-color: #ff9999; /* Red */
+        padding: 20px;
+        text-align: center;
+      }
+      
+      /* Define styles for the title */
+      h1 {
+        margin: 0;
+        font-size: 48px;
+        font-weight: bold;
         color: white;
-        border-radius: 5px 5px 0 0;
-        cursor: pointer;
+        text-shadow: 2px 2px #666;
       }
       
-      /* Define different background colors for each tab */
-      #tab1 {
-        background-color: #ff9999; /* Red */
+      /* Define styles for the navigation menu */
+      nav {
+        background-color: #333; /* Dark gray */
+        padding: 10px;
+        text-align: center;
       }
       
-      #tab2 {
-        background-color: #ffcc99; /* Orange */
-      }
-      
-      #tab3 {
-        background-color: #ffff99; /* Yellow */
-      }
-      
-      #tab4 {
-        background-color: #99ff99; /* Green */
-      }
-      
-      #tab5 {
-        background-color: #99ccff; /* Blue */
-      }
-      
-      #tab6 {
-        background-color: #cc99ff; /* Purple */
-      }
-      
-      /* Define styles for the active tab */
-      .active {
-        background-color: white;
-        color: black;
-      }
-      
-      /* Define styles for the welcome text */
-      #welcome {
-        margin-top: 20px;
+      /* Define styles for the navigation links */
+      nav a {
+        color: white;
+        text-decoration: none;
+        padding: 10px;
         font-size: 24px;
         font-weight: bold;
+        margin: 10px;
+        border-radius: 5px;
+        background-color: #ff9999; /* Red */
+      }
+      
+      /* Define styles for the welcome message */
+      #welcome {
+        font-size: 36px;
+        margin: 50px;
+        text-align: center;
+        color: #333; /* Dark gray */
+      }
+      
+      /* Define styles for the image */
+      #cat-image {
+        display: block;
+        margin: 0 auto;
+        width: 50%;
+        border-radius: 10px;
+        box-shadow: 5px 5px #666;
+      }
+      
+      /* Define styles for the footer */
+      footer {
+        background-color: #333; /* Dark gray */
+        color: white;
+        padding: 20px;
+        text-align: center;
       }
     </style>
   </head>
   <body>
     <header>
-      <h1>My Website</h1>
+      <h1>Mister Kitty's Website</h1>
     </header>
-    <div>
-      <div class="tab active" id="tab1">Tab 1</div>
-      <div class="tab" id="tab2">Tab 2</div>
-      <div class="tab" id="tab3">Tab 3</div>
-      <div class="tab" id="tab4">Tab 4</div>
-      <div class="tab" id="tab5">Tab 5</div>
-      <div class="tab" id="tab6">Tab 6</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Photos</a>
+      <a href="#">Blog</a>
+      <a href="#">Contact</a>
+    </nav>
+    <div id="welcome">
+      <p>Hi there, I'm Mister Kitty!</p>
+      <p>I'm the coolest cat you'll ever meet.</p>
+      <p>Check out my photos and blog posts to see what I've been up to.</p>
     </div>
-    <div id="welcome">Welcome to my website!</div>
+    <img src="mister-kitty.jpg" alt="Mister Kitty" id="cat-image">
+    <footer>
+      <p>&copy; 2023 Mister Kitty's Website</p>
+    </footer>
   </body>
 </html>
