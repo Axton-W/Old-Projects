@@ -1,140 +1,58 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Mister Kitty's Website</title>
-    <style>
-      /* Define styles for the header */
-      header {
-        background-color: #8A2BE2; /* Violet */
-        padding: 20px;
-        text-align: center;
-      }
-      
-      /* Define styles for the title */
-      h1 {
-        margin: 0;
-        font-size: 48px;
-        font-weight: bold;
-        color: white;
-        text-shadow: 2px 2px #666;
-      }
-      
-      /* Define styles for the navigation menu */
-      nav {
-        background-color: #f0f0f0; /* Light gray */
-        padding: 10px;
-        text-align: center;
-      }
-      
-      /* Define styles for the navigation links */
-      nav a {
-        color: #8A2BE2; /* Violet */
-        text-decoration: none;
-        padding: 10px;
-        font-size: 24px;
-        font-weight: bold;
-        margin: 10px;
-        border-radius: 5px;
-        background-color: #f0f0f0; /* Light gray */
-        transition: all 0.2s ease-in-out;
-      }
-      
-      /* Define styles for the active navigation link */
-      nav a.active {
-        color: white;
-        background-color: #8A2BE2; /* Violet */
-      }
-      
-      /* Define styles for the welcome message */
-      #welcome {
-        font-size: 36px;
-        margin: 50px;
-        text-align: center;
-        color: #666; /* Gray */
-      }
-      
-      /* Define styles for the about section */
-      #about {
-        font-size: 24px;
-        margin: 50px;
-        text-align: center;
-        color: #666; /* Gray */
-      }
-      
-      /* Define styles for the bulleted list */
-      #about ul {
-        list-style-type: disc;
-        text-align: left;
-      }
-      
-      /* Define styles for the footer */
-      footer {
-        background-color: #f0f0f0; /* Light gray */
-        color: #666; /* Gray */
-        padding: 20px;
-        text-align: center;
-      }
-      
-      /* Define styles for the cat image */
-      #cat-image {
-        display: block;
-        margin: 50px auto;
-        border-radius: 50%;
-        box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <h1>Mister Kitty's Website</h1>
-    </header>
-    <nav>
-      <a href="#" class="active">Home</a>
-      <a href="#about">About</a>
-      <a href="#">Photos</a>
-      <a href="#">Blog</a>
-      <a href="#">Contact</a>
-    </nav>
-    
-    <div id="welcome">
-      <p>Hi there, I'm Mister Kitty!</p>
-      <p>I'm the coolest cat you'll ever meet.</p>
-        <p>I'm the coolest cat you'll ever meet.</p>
-        <p>Check out my photos and blog posts to see what I've been up to.</p>
-        <img src="misterkittywelcome.jpg" alt="Cute cat" id="cat-image" width="300" height="200">
-      </div>
-    </div>
-    <div id="About" class="tabcontent">
-      <ul>
-        <li>Born in 2017</li>
-        <li>Person Cat</li>
-        <li>Curious</li>
-        <li>Butthole</li>
-      </ul>
-    </div>
-    <div id="Photos" class="tabcontent">
-      <p>Photos coming soon!</p>
-    </div>
-    <div id="Blog" class="tabcontent">
-      <p>Blog coming soon!</p>
-    </div>
-    <div id="Contact" class="tabcontent">
-      <p>Contact information coming soon!</p>
-    </div>
-    <footer>
-      <p>&copy; 2023 Mister Kitty's Website THIS IS AN UPDATE</p>
-    </footer>
-    <script>
-      function openTab(evt, tabName) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-          tabcontent[i].style.display = "none";
-        }
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-          tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-        document.getElementById(tabName).style
-
+<head>
+	<title>Adventures of a Butthole</title>
+	<style>
+		body {
+			background-color: #F5DEB3; /* wheat */
+			font-family: Arial, sans-serif;
+		}
+		header {
+			background-color: #4B0082; /* indigo */
+			padding: 10px;
+			text-align: center;
+			color: white;
+			font-size: 24px;
+			font-weight: bold;
+		}
+		nav {
+			background-color: #800000; /* maroon */
+			overflow: hidden;
+		}
+		nav a {
+			float: left;
+			display: block;
+			color: white;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+			font-size: 20px;
+		}
+		nav a:hover {
+			background-color: #2E8B57; /* sea green */
+		}
+		h2 {
+			color: #800000; /* maroon */
+		}
+		p {
+			color: #2E8B57; /* sea green */
+		}
+		#cat-image {
+			display: block;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+<body>
+	<header>Adventures of a Butthole</header>
+	<nav>
+		<a href="#about">About Mister Kitty</a>
+		<a href="#adventures">Latest Adventures</a>
+	</nav>
+	<img src="misterkittywelcome.jpg" alt="Cute cat" id="cat-image" width="300" height="200">
+	<h2 id="about">About Mister Kitty</h2>
+	<p>Mister Kitty is a snarky feline who loves pickles and picking on his sister, Alice. He enjoys long naps in the sun and watching birds outside the window.</p>
+	<h2 id="adventures">Latest Adventures</h2>
+	<p>Last week, Mister Kitty knocked over a vase and blamed it on Alice. He also stole a pickle from the fridge and got caught with his paw in the jar.</p>
+</body>
 </html>
