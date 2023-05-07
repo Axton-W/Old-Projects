@@ -21,20 +21,27 @@
       
       /* Define styles for the navigation menu */
       nav {
-        background-color: #333; /* Dark gray */
+        background-color: #f0f0f0; /* Light gray */
         padding: 10px;
         text-align: center;
       }
       
       /* Define styles for the navigation links */
       nav a {
-        color: white;
+        color: #8A2BE2; /* Violet */
         text-decoration: none;
         padding: 10px;
         font-size: 24px;
         font-weight: bold;
         margin: 10px;
         border-radius: 5px;
+        background-color: #f0f0f0; /* Light gray */
+        transition: all 0.2s ease-in-out;
+      }
+      
+      /* Define styles for the active navigation link */
+      nav a.active {
+        color: white;
         background-color: #8A2BE2; /* Violet */
       }
       
@@ -43,53 +50,37 @@
         font-size: 36px;
         margin: 50px;
         text-align: center;
-        color: #333; /* Dark gray */
+        color: #666; /* Gray */
       }
+      
+      /* Define styles for the about section */
+      #about {
+        font-size: 24px;
+        margin: 50px;
+        text-align: center;
+        color: #666; /* Gray */
+      }
+      
+      /* Define styles for the bulleted list */
+      #about ul {
+        list-style-type: disc;
+        text-align: left;
+      }
+      
       /* Define styles for the footer */
       footer {
-        background-color: #333; /* Dark gray */
-        color: white;
+        background-color: #f0f0f0; /* Light gray */
+        color: #666; /* Gray */
         padding: 20px;
         text-align: center;
       }
-    </style>
-  <!DOCTYPE html>
-<html>
-  <head>
-    <title>Mister Kitty's Website</title>
-    <style>
-      /* Tabs */
-      .tab {
-        overflow: hidden;
-        border: 1px solid #ccc;
-        background-color: #f1f1f1;
-      }
       
-      .tab button {
-        background-color: inherit;
-        float: left;
-        border: none;
-        outline: none;
-        cursor: pointer;
-        padding: 14px 16px;
-        transition: 0.3s;
-        font-size: 17px;
-      }
-      
-      .tab button:hover {
-        background-color: #ddd;
-      }
-      
-      .tab button.active {
-        background-color: #ccc;
-      }
-      
-      /* Tab content */
-      .tabcontent {
-        display: none;
-        padding: 6px 12px;
-        border: 1px solid #ccc;
-        border-top: none;
+      /* Define styles for the cat image */
+      #cat-image {
+        display: block;
+        margin: 50px auto;
+        border-radius: 50%;
+        box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
       }
     </style>
   </head>
@@ -97,16 +88,25 @@
     <header>
       <h1>Mister Kitty's Website</h1>
     </header>
-    <div class="tab">
-      <button class="tablinks" onclick="openTab(event, 'Home')">Home</button>
-      <button class="tablinks" onclick="openTab(event, 'About')">About</button>
-      <button class="tablinks" onclick="openTab(event, 'Photos')">Photos</button>
-      <button class="tablinks" onclick="openTab(event, 'Blog')">Blog</button>
-      <button class="tablinks" onclick="openTab(event, 'Contact')">Contact</button>
+    <nav>
+      <a href="#" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#">Photos</a>
+      <a href="#">Blog</a>
+      <a href="#">Contact</a>
+    </nav>
+    <div id="about">
+      <h2>About Me</h2>
+      <ul>
+        <li>Born in 2017</li>
+        <li>Person Cat</li>
+        <li>Curious</li>
+        <li>Butthole</li>
+      </ul>
     </div>
-    <div id="Home" class="tabcontent">
-      <div id="welcome">
-        <p>Hi there, I'm Mister Kitty!</p>
+    <div id="welcome">
+      <p>Hi there, I'm Mister Kitty!</p>
+      <p>I'm the coolest cat you'll ever meet.</p>
         <p>I'm the coolest cat you'll ever meet.</p>
         <p>Check out my photos and blog posts to see what I've been up to.</p>
         <img src="misterkittywelcome.jpg" alt="Cute cat" id="cat-image" width="300" height="200">
