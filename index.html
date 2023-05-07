@@ -19,15 +19,18 @@
 		nav {
 			background-color: #800000; /* maroon */
 			overflow: hidden;
+			display: flex;
+			justify-content: center;
+			align-items: center;
 		}
 		nav a {
-			float: left;
 			display: block;
 			color: white;
 			text-align: center;
 			padding: 14px 16px;
 			text-decoration: none;
 			font-size: 20px;
+			margin: 0 20px;
 		}
 		nav a:hover {
 			background-color: #2E8B57; /* sea green */
@@ -42,20 +45,20 @@
 		}
 		#cat-image {
 			display: block;
-			margin: 0 auto 50px auto;
+			margin: 50px auto;
 			border-radius: 50%;
-			width: 390px;
-			height: 260px;
+			width: 507px;
+			height: 338px;
 		}
 	</style>
 </head>
 <body>
 	<header>Adventures of a Butthole</header>
-	<img src="misterkittywelcome.jpg" alt="Cute cat" id="cat-image">
 	<nav>
 		<a href="#about">About Mister Kitty</a>
 		<a href="#adventures">Latest Adventures</a>
 	</nav>
+	<img src="misterkittywelcome.jpg" alt="Cute cat" id="cat-image">
 	<h2 id="about">About Mister Kitty</h2>
 	<p>Mister Kitty is a snarky feline who loves pickles and picking on his sister, Alice. He enjoys long naps in the sun and watching birds outside the window.</p>
 	<h2 id="adventures">Latest Adventures</h2>
