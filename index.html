@@ -57,11 +57,97 @@
 	<nav>
 		<a href="#about">About Mister Kitty</a>
 		<a href="#adventures">Latest Adventures</a>
+		<a href="#catchat">Sunshine Meter</a>
 	</nav>
 	<img src="misterkittywelcome.jpg" alt="Cute cat" id="cat-image">
 	<h2 id="about">About Mister Kitty</h2>
-	<p>Mister Kitty is a snarky feline who loves pickles and picking on his sister, Alice. He enjoys long naps in the sun and watching birds outside the window.</p>
+	<p>Mister Kitty is a snarky feline who loves pickles and picking on his sister, Alice. 
+		He enjoys long naps in the sun and watching birds outside the window. Mister Kitty</p>
 	<h2 id="adventures">Latest Adventures</h2>
 	<p>Last week, Mister Kitty knocked over a vase and blamed it on Alice. He also stole a pickle from the fridge and got caught with his paw in the jar.</p>
+<h3 id="#catchat">Ask Mister a question!</h3>
+<head>
+	<title>Mister Kitty - Snarky Response Generator</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+	<style>
+	  body {
+		background-color: #f1f1f1;
+	  }
+	  .container {
+		margin-top: 50px;
+	  }
+	  .card {
+		margin-bottom: 20px;
+	  }
+	  .card-header {
+		background-color: #343a40;
+		color: #fff;
+		font-weight: bold;
+	  }
+	  .card-body {
+		font-size: 18px;
+	  }
+	  #loading {
+		display: none;
+	  }
+	</style>
+  </head>
+  <body>
+	<div class="container">
+	  <div class="row justify-content-center">
+		<div class="col-lg-8">
+		  <h1 class="text-center mb-5">Mister Kitty - Snarky Response Generator</h1>
+		  <div class="card">
+			<div class="card-header">User Prompt</div>
+			<div class="card-body">
+			  <form id="chat-form">
+				<div class="mb-3">
+				  <label for="user-prompt" class="form-label">Enter your prompt</label>
+				  <textarea class="form-control" id="user-prompt" rows="3" required></textarea>
+				</div>
+				<button type="submit" class="btn btn-primary">Generate Response</button>
+			  </form>
+			</div>
+		  </div>
+		  <div class="card">
+			<div class="card-header">Mister Kitty's Response</div>
+			<div class="card-body">
+			  <p id="mister-kitty-response"></p>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	<div id="loading" class="position-fixed top-0 start-0 h-100 w-100 d-flex justify-content-center align-items-center" style="background-color: rgba(0,0,0,0.5);">
+	  <img src="https://media.giphy.com/media/3o7bu3XilJ5BOiSGic/giphy.gif" alt="loading">
+	</div>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+	<script>
+	  $(document).ready(function() {
+		$('#chat-form').submit(function(e) {
+		  e.preventDefault();
+		  $('#loading').show();
+		  $.ajax({
+			type: "POST",
+			url: "https://www.literallyanything.io/api/integrations/chatgpt",
+			contentType: "application/json",
+			data: JSON.stringify({
+			  "systemPrompt": "Mister Kitty is ready to give you a snarky response",
+			  "prompts": [{ "role": "user", "content": $('#user-prompt').val() }]
+			}),
+			success: function(data) {
+			  $('#mister-kitty-response').text(data.response);
+			},
+			complete: function() {
+			  $('#loading').hide();
+			}
+		  });
+		});
+	  });
+	</script>
+  </body>
 </body>
 </html>
