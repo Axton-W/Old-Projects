@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
   <title>Anonymous Discussion Board</title>
@@ -14,43 +15,10 @@
 <body>
   <div class="container mt-5">
     <h1 class="text-center mb-4">Anonymous Discussion Board</h1>
-    <div id="comments"></div>
-    <form id="commentForm">
-      <div class="mb-3">
-        <label for="commentContent" class="form-label">Comment Content</label>
-        <textarea class="form-control" id="commentContent" rows="3"></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary">Post Comment</button>
-    </form>
+    <!-- Insert Commento code here -->
+    <script defer src="https://cdn.commento.io/js/commento.js"></script>
+    <div id="commento"></div>
   </div>
-
-  <script>
-    // Function to create a new comment element
-    function createCommentElement(content) {
-      const commentElement = document.createElement('div');
-      commentElement.classList.add('comment');
-      commentElement.innerText = content;
-      return commentElement;
-    }
-
-    // Function to handle form submission
-    function handleFormSubmit(event) {
-      event.preventDefault();
-      
-      const commentContent = document.getElementById('commentContent').value;
-      const commentElement = createCommentElement(commentContent);
-
-      // Add the comment element to the comments container
-      const commentsContainer = document.getElementById('comments');
-      commentsContainer.appendChild(commentElement);
-
-      // Clear the input field
-      document.getElementById('commentContent').value = '';
-    }
-    
-    // Add event listener to the form
-    const commentForm = document.getElementById('commentForm');
-    commentForm.addEventListener('submit', handleFormSubmit);
-  </script>
 </body>
 </html>
+
