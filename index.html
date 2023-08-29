@@ -14,8 +14,21 @@
 body {
   background-color: #f5f5f5;   
 }
-    
 
+    /* Custom styling for the Commento "Tell Us!" button */
+  .commento-submit-button {
+    background-color: #009688 !important;
+    color: white !important;
+    border: none !important;
+    padding: 10px 20px !important;
+    border-radius: 5px !important;
+  }
+
+  /* Change the text of the "Add Comment" button to "Tell Us!" */
+  .commento-submit-button::before {
+    content: 'Tell Us!';
+}
+    
     .graphics {
       display: flex;
       align-items: center;
