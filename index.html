@@ -1,145 +1,95 @@
-<!DOCTYPE html>
 <html>
 <head>
-    <title>TAI - Tutoring by Artificial Intelligence</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: white;
-        }
-
-        header {
-            background-color: #C8A2C8; /* Light Purple */
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-        }
-
-        nav ul {
-            list-style-type: none;
-            background-color: #4F97D7; /* Blue */
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
-
-        nav ul li {
-            display: inline;
-            margin-right: 20px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-        }
-
-        section {
-            margin: 20px;
-        }
-
-        footer {
-            background-color: lightgray;
-            color: black;
-            text-align: center;
-            padding: 10px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>Tutoring by Artificial Intelligence (TAI)</h1>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="#english-tutor">English Tutor</a></li>
-            <li><a href="#physics-tutor">Physics Tutor</a></li>
-            <li><a href="#anthropology-tutor">Anthropology Tutor</a></li>
-        </ul>
-    </nav>
-    <section id="english-tutor">
-        <head>
-  <title>College English Tutor</title>
+  <title>College Level Physics Tutor</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
 </head>
 <body>
   <div class="container">
-    <h1>Welcome to the College English Tutor</h1>
-    <p>Ask any English-related questions and get assistance from our virtual tutor!</p>
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Ask a question</h5>
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" id="questionInput" placeholder="Type your question here" aria-label="Type your question here" aria-describedby="submitBtn">
-          <button class="btn btn-primary" type="button" id="submitBtn">Submit</button>
-        </div>
+    <h1 class="text-center">College Level Physics Tutor</h1>
+    <div id="chat-container" class="mt-5">
+      <div id="chat-messages"></div>
+      <div id="loading-indicator" class="text-center">
+        <img src="https://cdn.dribbble.com/users/192126/screenshots/2232588/loading.gif" alt="Loading..." width="50">
       </div>
     </div>
-    <div id="answerContainer" class="mt-4">
-      <h5>Response:</h5>
-      <p id="answerText">Please ask a question to get a response.</p>
+    <div id="user-input" class="mt-3">
+      <input type="text" id="message-input" class="form-control" placeholder="Enter your message">
+      <button id="send-button" class="btn btn-primary mt-3">Send</button>
     </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
   <script>
-    document.getElementById("submitBtn").addEventListener("click", function() {
-      var question = document.getElementById("questionInput").value;
-      getAnswer(question);
+    const chatContainer = document.getElementById('chat-container');
+    const chatMessages = document.getElementById('chat-messages');
+    const loadingIndicator = document.getElementById('loading-indicator');
+    const messageInput = document.getElementById('message-input');
+    const sendButton = document.getElementById('send-button');
+
+    sendButton.addEventListener('click', sendMessage);
+    messageInput.addEventListener('keypress', function(event) {
+      if (event.key === 'Enter') {
+        sendMessage();
+      }
     });
 
-    function getAnswer(question) {
-      // Display loading indicator
-      document.getElementById("answerText").innerHTML = "Loading...";
+    function sendMessage() {
+      const message = messageInput.value.trim();
+      if (message !== '') {
+        appendUserMessage(message);
+        messageInput.value = '';
+        showLoadingIndicator();
+        sendToChatGPT(message).then(appendAssistantMessage);
+      }
+    }
 
-      // Make API call to ChatGPT
-      fetch("https://www.literallyanything.io/api/integrations/chatgpt", {
-        method: "POST",
+    function appendUserMessage(message) {
+      const userMessageElement = document.createElement('div');
+      userMessageElement.className = 'alert alert-primary';
+      userMessageElement.innerText = message;
+      chatMessages.appendChild(userMessageElement);
+      scrollToBottom();
+    }
+
+    function appendAssistantMessage(message) {
+      hideLoadingIndicator();
+      const assistantMessageElement = document.createElement('div');
+      assistantMessageElement.className = 'alert alert-success';
+      assistantMessageElement.innerText = message;
+      chatMessages.appendChild(assistantMessageElement);
+      scrollToBottom();
+    }
+
+    function sendToChatGPT(message) {
+      const body = {
+        "systemPrompt": "You are a College Level Physics Tutor. Provide helpful responses to students' physics questions.",
+        "prompts": [
+          { "role": "user", "content": message }
+        ]
+      };
+
+      return fetch('https://www.literallyanything.io/api/integrations/chatgpt', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json"
+          'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-          "systemPrompt": "As a College English Tutor, I can assist you with any English-related questions.",
-          "prompts": [
-            { "role": "user", "content": question }
-          ]
-        })
+        body: JSON.stringify(body)
       })
-      .then(function(response) {
-        return response.json();
-      })
-      .then(function(data) {
-        // Display answer
-        document.getElementById("answerText").innerHTML = data.response;
-      })
-      .catch(function(error) {
-        console.log(error);
-        // Display error message
-        document.getElementById("answerText").innerHTML = "An error occurred while fetching the answer. Please try again later.";
-      });
+      .then(response => response.json())
+      .then(data => data.response);
+    }
+
+    function showLoadingIndicator() {
+      loadingIndicator.style.display = 'block';
+    }
+
+    function hideLoadingIndicator() {
+      loadingIndicator.style.display = 'none';
+    }
+
+    function scrollToBottom() {
+      chatContainer.scrollTop = chatContainer.scrollHeight;
     }
   </script>
-</body>
-        <h2>English Tutor</h2>
-        <p>Interactive English learning with AI.</p>
-    </section>
-    <section id="physics-tutor">
-        <!-- Content for Physics Tutor -->
-        <h2>Physics Tutor</h2>
-        <p>Explore the laws of physics with our AI tutor.</p>
-    </section>
-    <section id="anthropology-tutor">
-        <!-- Content for Anthropology Tutor -->
-        <h2>Anthropology Tutor</h2>
-        <p>Discover the human past and present with AI guidance.</p>
-    </section>
-    <footer>
-        <!-- Footer content -->
-    </footer>
 </body>
 </html>
