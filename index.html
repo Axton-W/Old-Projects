@@ -3,34 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TAI - Tutoring by Artificial Intelligence</title>
+    <title>TAI: THINK POSITIVE</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: white;
+            background-color: #f8f9fa; /* Light grey background */
             color: #333;
         }
 
         header {
-            background-color: #C8A2C8; /* Light Purple */
+            background-color: #007bff; /* Changed to a light blue */
             color: white;
             text-align: center;
             padding: 20px 0;
         }
 
+        header h1 {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px #000000;
+        }
+
         nav ul {
             list-style-type: none;
-            background-color: #4F97D7; /* Blue */
+            background-color: #28a745; /* Changed to a green */
             padding: 10px 0;
             margin: 0;
             overflow: hidden;
+            text-align: center; /* Center the nav items */
         }
 
         nav ul li {
             display: inline;
-            margin-right: 20px;
+            margin: 0 20px;
         }
 
         nav ul li a {
@@ -46,14 +53,25 @@
             color: white;
         }
 
-        section {
-            margin: 20px;
-            text-align: center;
+        .collage {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px;
+        }
+
+        .collage img {
+            flex: 1;
+            max-width: 200px;
+            border: 3px solid #007bff;
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
         }
 
         footer {
-            background-color: lightgray;
-            color: black;
+            background-color: #6c757d; /* Dark grey */
+            color: white;
             text-align: center;
             padding: 10px 0;
             position: fixed;
@@ -64,7 +82,7 @@
 </head>
 <body>
     <header>
-        <h1>Tutoring by Artificial Intelligence (TAI)</h1>
+        <h1>TAI: THINK POSITIVE</h1>
     </header>
     <nav>
         <ul>
@@ -74,10 +92,13 @@
             <!-- Add more list items here for additional subjects -->
         </ul>
     </nav>
-    <section>
-        <p>Welcome to TAI - Your personal AI tutoring assistant for various subjects!</p>
-        <!-- Additional content can be added here -->
-    </section>
+    <div class="collage">
+        <img src="Landing1.jpg" alt="Landing Image 1">
+        <img src="Landing2.png" alt="Landing Image 2">
+        <img src="Landing3.jpg" alt="Landing Image 3">
+        <img src="Landing4.jpg" alt="Landing Image 4">
+        <!-- Replace 'path/to/' with the actual paths to your images -->
+    </div>
     <footer>
         <p>&copy; 2023 TAI Tutoring. All rights reserved.</p>
     </footer>
